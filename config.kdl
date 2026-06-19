@@ -24,12 +24,12 @@ binds {
 }
 
 gestures {
-    hot-corners {
-      off
-    }
+  hot-corners {
+    off
+  }
 }
 
 switch-events {
     // v5: noctalia msg instead of qs ipc call
-    lid-close { spawn "noctalia" "msg" "lock"; }
+    lid-close { spawn "noctalia" "msg" "session" "lock-and-suspend"; }
 }
