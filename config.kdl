@@ -7,26 +7,29 @@ include "./cfg/layout.kdl"
 include "./cfg/rules.kdl"
 include "./cfg/misc.kdl"
 
-spawn-sh-at-startup "fcitx5 -d"
-
 binds {
+    // Your personal URL shortcuts — unchanged, these are niri-native
     "Alt+1" { spawn "xdg-open" "https://gemini.google.com"; }
     "Alt+2" { spawn "xdg-open" "https://chatgpt.com/g/g-p-6a0b314ac5d881918df8be49505e38de-study/project"; }
     "Alt+3" { spawn "xdg-open" "https://vinuni.instructure.com"; }
     "Alt+4" { spawn "xdg-open" "https://claude.ai"; }
-    "Mod+V" { spawn "qs" "-c" "noctalia-shell" "ipc" "call" "launcher" "clipboard"; }
-    "Mod+Space" { spawn-sh "qs -c noctalia-shell ipc call launcher toggle"; }
+
+    // v5: noctalia msg instead of qs -c noctalia-shell ipc call
+    "Mod+V"     { spawn-sh "noctalia msg panel-toggle clipboard"; }
+    "Mod+Space" { spawn-sh "noctalia msg panel-toggle launcher"; }
+    "Mod+Comma" { spawn-sh "noctalia msg settings-toggle"; }
+
+    // Niri-native, unchanged
     "Mod+Tab" { toggle-overview; }
-    "Mod+Comma" { spawn-sh "qs -c noctalia-shell ipc call settings toggle"; }
 }
 
 gestures {
     hot-corners {
-        off
+      off
     }
 }
 
 switch-events {
-    lid-close { spawn "qs" "-c" "noctalia-shell" "ipc" "call" "sessionMenu" "lockAndSuspend"; }
+    // v5: noctalia msg instead of qs ipc call
+    lid-close { spawn "noctalia" "msg" "lock"; }
 }
-
