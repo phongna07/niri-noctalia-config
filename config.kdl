@@ -21,6 +21,10 @@ binds {
 
     // Niri-native, unchanged
     "Mod+Tab" { toggle-overview; }
+
+
+    MouseBack { focus-column-right; }
+    MouseForward { focus-column-left; }
 }
 
 gestures {
