@@ -3,5 +3,4 @@
 
 spawn-at-startup "noctalia"
 spawn-sh-at-startup "fcitx5 -d"
-spawn-at-startup "systemd-run" "--user" "--scope" "/usr/lib/polkit-kde-authentication-agent-1"
 
